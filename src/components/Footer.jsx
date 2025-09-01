@@ -1,6 +1,15 @@
-import React from 'react';
-import { Github, Linkedin, Mail, Heart, MapPin, Phone, Sparkles, Code2 } from 'lucide-react';
-import { personalInfo } from '../data/mock';
+import React from "react";
+import {
+  Github,
+  Linkedin,
+  Mail,
+  Heart,
+  MapPin,
+  Phone,
+  Sparkles,
+  Code2,
+} from "lucide-react";
+import { personalInfo } from "../data/mock";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -9,14 +18,14 @@ const Footer = () => {
     {
       icon: Github,
       href: personalInfo.github,
-      label: 'GitHub',
-      gradient: 'from-gray-700 to-gray-900'
+      label: "GitHub",
+      gradient: "from-gray-700 to-gray-900",
     },
     {
       icon: Linkedin,
       href: personalInfo.linkedin,
-      label: 'LinkedIn',
-      gradient: 'from-blue-600 to-blue-800'
+      label: "LinkedIn",
+      gradient: "from-blue-600 to-blue-800",
     },
     // {
     //   icon: Mail,
@@ -27,18 +36,18 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' }
+    { name: "About", href: "#about" },
+    { name: "Skills", href: "#skills" },
+    { name: "Projects", href: "#projects" },
+    { name: "Experience", href: "#experience" },
+    { name: "Testimonials", href: "#testimonials" },
+    { name: "Contact", href: "#contact" },
   ];
 
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -64,10 +73,12 @@ const Footer = () => {
                   <h3 className="text-2xl font-black text-white">
                     {personalInfo.name}
                   </h3>
-                  <p className="text-violet-300 font-medium">{personalInfo.title}</p>
+                  <p className="text-violet-300 font-medium">
+                    {personalInfo.title}
+                  </p>
                 </div>
               </div>
-              
+
               <p className="text-slate-300 text-lg leading-relaxed">
                 {personalInfo.tagline}
               </p>
@@ -139,7 +150,7 @@ const Footer = () => {
                 <Heart size={20} className="text-rose-400" />
                 <span>Connect With Me</span>
               </h4>
-              
+
               <div className="grid grid-cols-1 gap-4">
                 {socialLinks.map((social, index) => (
                   <a
@@ -151,14 +162,18 @@ const Footer = () => {
                   >
                     <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-4 border border-white/20 hover:bg-white/20 transition-all duration-300 cursor-hover">
                       <div className="flex items-center space-x-4">
-                        <div className={`w-12 h-12 bg-gradient-to-r ${social.gradient} rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                        <div
+                          className={`w-12 h-12 bg-gradient-to-r ${social.gradient} rounded-xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300`}
+                        >
                           <social.icon size={20} className="text-white" />
                         </div>
                         <div>
                           <span className="text-white font-bold text-lg group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:from-violet-400 group-hover:to-rose-400 group-hover:bg-clip-text transition-all duration-300">
                             {social.label}
                           </span>
-                          <p className="text-slate-400 text-sm">Follow me for updates</p>
+                          <p className="text-slate-400 text-sm">
+                            Follow me for updates
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -194,7 +209,7 @@ const Footer = () => {
                   © {currentYear} {personalInfo.name}. All rights reserved.
                 </p>
               </div>
-              
+
               <div className="flex items-center space-x-2 text-slate-400 text-sm">
                 <span>Built with</span>
                 <Heart className="w-4 h-4 text-rose-400 fill-current animate-pulse" />

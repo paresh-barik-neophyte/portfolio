@@ -1,15 +1,16 @@
-import React, { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ArrowDown, Download, MessageCircle, Sparkles } from 'lucide-react';
-import ThreeScene from '../components/ThreeScene';
-import { personalInfo } from '../data/mock';
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ArrowDown, Download, MessageCircle, Sparkles } from "lucide-react";
+import ThreeScene from "../components/ThreeScene";
+import { personalInfo } from "../data/mock";
 
 const HeroSection = () => {
   const heroRef = useRef();
 
   useEffect(() => {
     // Enhanced GSAP animations for bold design
-    gsap.fromTo(heroRef.current, 
+    gsap.fromTo(
+      heroRef.current,
       { opacity: 0 },
       { opacity: 1, duration: 1, delay: 0.3, ease: "power3.out" }
     );
@@ -21,30 +22,33 @@ const HeroSection = () => {
       repeat: -1,
       yoyo: true,
       ease: "power2.inOut",
-      stagger: 0.3
+      stagger: 0.3,
     });
   }, []);
 
   const scrollToNextSection = () => {
-    const aboutSection = document.querySelector('#about');
+    const aboutSection = document.querySelector("#about");
     if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
+      aboutSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
   const handleContactNow = () => {
-    const contactSection = document.querySelector('#contact');
+    const contactSection = document.querySelector("#contact");
     if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
+      contactSection.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-
   return (
-    <section id="home" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden hero-padding">
+    <section
+      id="home"
+      ref={heroRef}
+      className="relative min-h-screen flex items-center justify-center overflow-hidden hero-padding"
+    >
       {/* Animated Background Gradient */}
       <div className="absolute inset-0 bg-gradient-animated opacity-20 z-0"></div>
-      
+
       {/* Background 3D Scene */}
       <div className="absolute inset-0 z-10 opacity-40">
         <ThreeScene />
@@ -67,20 +71,29 @@ const HeroSection = () => {
             {/* Main Title with Gradient */}
             <h1 className="text-6xl md:text-7xl lg:text-8xl font-black leading-none tracking-tight">
               <span className="text-gradient block floating-element">
-                {personalInfo.name.split(' ')[0]}
+                {personalInfo.name.split(" ")[0]}
               </span>
-              <span className="text-primary block floating-element" style={{animationDelay: '0.2s'}}>
-                {personalInfo.name.split(' ')[1]}
+              <span
+                className="text-primary block floating-element"
+                style={{ animationDelay: "0.2s" }}
+              >
+                {personalInfo.name.split(" ")[1]}
               </span>
             </h1>
 
             {/* Subtitle with enhanced styling */}
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-secondary floating-element" style={{animationDelay: '0.4s'}}>
+            <h2
+              className="text-2xl md:text-3xl lg:text-4xl font-bold text-secondary floating-element"
+              style={{ animationDelay: "0.4s" }}
+            >
               {personalInfo.title}
             </h2>
 
             {/* Description with rich styling */}
-            <div className="floating-element space-y-4" style={{animationDelay: '0.6s'}}>
+            <div
+              className="floating-element space-y-4"
+              style={{ animationDelay: "0.6s" }}
+            >
               <p className="text-xl md:text-2xl text-muted-foreground max-w-2xl leading-relaxed font-medium">
                 {personalInfo.tagline}
               </p>
@@ -97,7 +110,10 @@ const HeroSection = () => {
             </div>
 
             {/* Enhanced CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 pt-4 floating-element" style={{animationDelay: '0.8s'}}>
+            <div
+              className="flex flex-col sm:flex-row gap-4 pt-4 floating-element"
+              style={{ animationDelay: "0.8s" }}
+            >
               <button
                 onClick={handleContactNow}
                 className="group relative overflow-hidden bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-blue-500/25 cursor-hover"
@@ -108,7 +124,7 @@ const HeroSection = () => {
                   <span>Contact Now</span>
                 </div>
               </button>
-              
+
               <a
                 href={personalInfo.resumeUrl}
                 target="_blank"
@@ -123,18 +139,27 @@ const HeroSection = () => {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 pt-8 pb-8 lg:pb-0 floating-element" style={{animationDelay: '1s'}}>
+            <div
+              className="grid grid-cols-3 gap-8 pt-8 pb-8 lg:pb-0 floating-element"
+              style={{ animationDelay: "1s" }}
+            >
               <div className="text-center lg:text-left">
                 <div className="text-3xl font-black text-gradient">5+</div>
-                <div className="text-sm text-muted-foreground font-medium">Years Experience</div>
+                <div className="text-sm text-muted-foreground font-medium">
+                  Years Experience
+                </div>
               </div>
               <div className="text-center lg:text-left">
                 <div className="text-3xl font-black text-gradient">25+</div>
-                <div className="text-sm text-muted-foreground font-medium">Projects</div>
+                <div className="text-sm text-muted-foreground font-medium">
+                  Projects
+                </div>
               </div>
               <div className="text-center lg:text-left">
                 <div className="text-3xl font-black text-gradient">98%</div>
-                <div className="text-sm text-muted-foreground font-medium">Client Satisfaction</div>
+                <div className="text-sm text-muted-foreground font-medium">
+                  Client Satisfaction
+                </div>
               </div>
             </div>
           </div>

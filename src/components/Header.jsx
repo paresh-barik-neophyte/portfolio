@@ -36,7 +36,7 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-        isScrolled
+        isScrolled || isMenuOpen
           ? "bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-700/50 shadow-lg"
           : "bg-transparent"
       }`}
@@ -56,11 +56,11 @@ const Header = () => {
                 <div className="absolute inset-0 bg-gradient-to-r from-blue-600 to-emerald-600 rounded-xl blur opacity-30 group-hover:opacity-50 transition-opacity duration-300"></div>
               </div>
               <div>
-                <h1 className="text-xl font-black text-primary group-hover:text-gradient transition-all duration-300">
+                <h1 className="text-xl text-left font-black text-primary group-hover:text-gradient transition-all duration-300">
                   Paresh Barik
                 </h1>
                 <p className="text-xs text-muted-foreground font-medium">
-                  Lead Frontend Developer
+                  Lead Frontend Engineer
                 </p>
               </div>
             </button>
@@ -106,7 +106,10 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-96' : 'max-h-0'}`}>
+          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
+            isMenuOpen ? "max-h-96" : "max-h-0"
+          }`}
+        >
           <nav className="py-6 rounded-b-2xl">
             <div className="grid grid-cols-2 gap-3">
               {navItems.map((item) => (
