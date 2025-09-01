@@ -99,7 +99,7 @@ const SkillsSection = () => {
                 {/* Section Header */}
                 <button
                   onClick={() => toggleSection(section.id)}
-                  className="w-full text-left bg-white dark:bg-slate-800 rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200 dark:border-slate-700 group"
+                  className={`w-full text-left bg-white dark:bg-slate-800 p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200 dark:border-slate-700 group ${isActive ? 'rounded-t-2xl' : 'rounded-2xl'}`}
                 >
                   <div className="flex items-center justify-between">
                     <div className="flex items-center space-x-6">
@@ -123,39 +123,20 @@ const SkillsSection = () => {
                   </div>
                 </button>
 
-                {/* Marquee Content */}
-                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                  isActive ? 'max-h-40 mt-6' : 'max-h-0'
+                {/* Static Content */}
+                <div className={`overflow-hidden transition-all duration-500 ease-in-out ${ 
+                  isActive ? 'max-h-[500px]' : 'max-h-0'
                 }`}>
-                  <div className="bg-gradient-to-r from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-700 rounded-2xl p-6 border border-slate-200 dark:border-slate-600">
-                    {/* Forward Marquee */}
-                    <div className="marquee-container mb-4">
-                      <div className="marquee">
-                        {/* Duplicate items for seamless loop */}
-                        {[...section.items, ...section.items, ...section.items].map((item, idx) => (
-                          <div key={`forward-${idx}`} className="inline-flex items-center space-x-3 bg-white dark:bg-slate-800 px-6 py-3 rounded-xl shadow-md border border-slate-200 dark:border-slate-600 mx-4 whitespace-nowrap">
-                            <div className={`w-3 h-3 bg-gradient-to-r ${section.gradient} rounded-full`}></div>
-                            <span className="text-slate-900 dark:text-white font-semibold text-lg">
-                              {item}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* Reverse Marquee */}
-                    <div className="marquee-container">
-                      <div className="marquee-reverse">
-                        {/* Duplicate items for seamless loop */}
-                        {[...section.items.slice().reverse(), ...section.items.slice().reverse(), ...section.items.slice().reverse()].map((item, idx) => (
-                          <div key={`reverse-${idx}`} className="inline-flex items-center space-x-3 bg-white dark:bg-slate-800 px-6 py-3 rounded-xl shadow-md border border-slate-200 dark:border-slate-600 mx-4 whitespace-nowrap">
-                            <div className={`w-3 h-3 bg-gradient-to-r ${section.gradient} rounded-full`}></div>
-                            <span className="text-slate-900 dark:text-white font-semibold text-lg">
-                              {item}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
+                  <div className="bg-white dark:bg-slate-800 rounded-b-2xl p-6 lg:p-8 border-x border-b border-slate-200 dark:border-slate-700">
+                    <div className="flex flex-wrap gap-4">
+                      {section.items.map((item, idx) => (
+                        <div key={idx} className="inline-flex items-center space-x-3 bg-slate-100 dark:bg-slate-700/50 px-4 py-2 rounded-lg">
+                          <div className={`w-2.5 h-2.5 bg-gradient-to-r ${section.gradient} rounded-full`}></div>
+                          <span className="text-slate-800 dark:text-slate-200 font-medium text-base">
+                            {item}
+                          </span>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>

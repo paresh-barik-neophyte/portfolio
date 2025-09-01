@@ -39,12 +39,6 @@ const HeroSection = () => {
     }
   };
 
-  const handleDownloadResume = () => {
-    const link = document.createElement('a');
-    link.href = personalInfo.resumeUrl;
-    link.download = 'PareshBarik_Resume.pdf';
-    link.click();
-  };
 
   return (
     <section id="home" ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden hero-padding">
@@ -63,7 +57,7 @@ const HeroSection = () => {
       <div className="relative z-30 max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center min-h-[80vh]">
           {/* Left side - Text content */}
-          <div className="lg:col-span-7 text-left space-y-8">
+          <div className="lg:col-span-7 text-left -mt-0 lg:-mt-20 space-y-8">
             {/* Floating Badge */}
             <div className="floating-element inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-emerald-600 text-white px-4 py-2 rounded-full text-sm font-medium">
               <Sparkles size={16} />
@@ -115,19 +109,21 @@ const HeroSection = () => {
                 </div>
               </button>
               
-              <button
-                onClick={handleDownloadResume}
-                className="group relative overflow-hidden border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/25 cursor-hover"
+              <a
+                href={personalInfo.resumeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative inline-block overflow-hidden border-2 border-emerald-600 text-emerald-600 hover:bg-emerald-600 hover:text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-emerald-500/25 cursor-hover"
               >
                 <div className="relative flex items-center justify-center space-x-3">
                   <Download size={24} />
                   <span>Download Resume</span>
                 </div>
-              </button>
+              </a>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-8 pt-8 floating-element" style={{animationDelay: '1s'}}>
+            <div className="grid grid-cols-3 gap-8 pt-8 pb-8 lg:pb-0 floating-element" style={{animationDelay: '1s'}}>
               <div className="text-center lg:text-left">
                 <div className="text-3xl font-black text-gradient">5+</div>
                 <div className="text-sm text-muted-foreground font-medium">Years Experience</div>
@@ -144,7 +140,7 @@ const HeroSection = () => {
           </div>
 
           {/* Right side - Enhanced 3D Scene area */}
-          <div className="lg:col-span-5 relative h-96 lg:h-screen flex items-center justify-center">
+          <div className="lg:col-span-5 relative h-96 hidden lg:block lg:h-screen items-center justify-center">
             <div className="w-full h-full relative">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-emerald-500/20 rounded-3xl blur-3xl"></div>
               <ThreeScene />
@@ -155,7 +151,7 @@ const HeroSection = () => {
         {/* Enhanced Scroll Indicator */}
         <button
           onClick={scrollToNextSection}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-primary hover:text-accent transition-all duration-300 cursor-hover animate-bounce group"
+          className="absolute bottom-8 lg:bottom-24 hidden lg:block left-1/2 transform -translate-x-1/2 text-primary hover:text-accent transition-all duration-3000 cursor-hover animate-bounce group"
           aria-label="Scroll to next section"
         >
           <div className="bg-gradient-to-r from-blue-600 to-emerald-600 p-3 rounded-full shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">

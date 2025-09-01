@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { useTheme } from '../context/ThemeContext';
-import { Moon, Sun, Menu, X, Sparkles } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { useTheme } from "../context/ThemeContext";
+import { Moon, Sun, Menu, X, Sparkles } from "lucide-react";
 
 const Header = () => {
   const { isDark, toggleTheme } = useTheme();
@@ -11,40 +11,42 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const navItems = [
-    { name: 'Home', href: '#home' },
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Testimonials', href: '#testimonials' },
-    { name: 'Contact', href: '#contact' },
+    { name: "Home", href: "#home" },
+    { name: "About", href: "#about" },
+    { name: "Skills", href: "#skills" },
+    { name: "Projects", href: "#projects" },
+    { name: "Experience", href: "#experience" },
+    { name: "Testimonials", href: "#testimonials" },
+    { name: "Contact", href: "#contact" },
   ];
 
   const scrollToSection = (href) => {
     const element = document.querySelector(href);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
       setIsMenuOpen(false);
     }
   };
 
   return (
-    <header className={`fixed top-0 w-full z-50 transition-all duration-500 ${
-      isScrolled 
-        ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-700/50 shadow-lg' 
-        : 'bg-transparent'
-    }`}>
+    <header
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+        isScrolled
+          ? "bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-b border-slate-200/50 dark:border-slate-700/50 shadow-lg"
+          : "bg-transparent"
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
             <button
-              onClick={() => scrollToSection('#home')}
+              onClick={() => scrollToSection("#home")}
               className="group flex items-center space-x-3 cursor-hover"
             >
               <div className="relative">
@@ -57,7 +59,9 @@ const Header = () => {
                 <h1 className="text-xl font-black text-primary group-hover:text-gradient transition-all duration-300">
                   Paresh Barik
                 </h1>
-                <p className="text-xs text-muted-foreground font-medium">Lead Frontend Developer</p>
+                <p className="text-xs text-muted-foreground font-medium">
+                  Lead Frontend Developer
+                </p>
               </div>
             </button>
           </div>
@@ -101,8 +105,9 @@ const Header = () => {
         </div>
 
         {/* Mobile Navigation */}
-        {isMenuOpen && (
-          <nav className="lg:hidden py-6 border-t border-slate-200 dark:border-slate-700 glass-morphism rounded-b-2xl mx-4">
+        <div
+          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-96' : 'max-h-0'}`}>
+          <nav className="py-6 rounded-b-2xl">
             <div className="grid grid-cols-2 gap-3">
               {navItems.map((item) => (
                 <button
@@ -115,7 +120,7 @@ const Header = () => {
               ))}
             </div>
           </nav>
-        )}
+        </div>
       </div>
     </header>
   );

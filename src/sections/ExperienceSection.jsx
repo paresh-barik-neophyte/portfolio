@@ -76,7 +76,7 @@ const ExperienceSection = () => {
                         <h3 className="text-3xl md:text-4xl font-black mb-2">
                           {job.position}
                         </h3>
-                        <div className="flex items-center space-x-4 text-lg opacity-90">
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center space-x-0 sm:space-x-4 text-lg opacity-90">
                           <div className="flex items-center space-x-2">
                             <Building size={20} />
                             <span className="font-semibold">{job.company}</span>

@@ -74,7 +74,7 @@ const TestimonialsSection = () => {
           </p>
 
           {/* Stats */}
-          <div className="flex items-center justify-center space-x-12 mt-12">
+          <div className="flex items-center justify-center space-x-8 sm:space-x-12 mt-12">
             <div className="text-center">
               <div className="flex items-center justify-center space-x-1 mb-2">
                 {renderStars(5)}
