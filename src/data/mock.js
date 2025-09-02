@@ -140,29 +140,37 @@ export const experience = [
     id: 1,
     position: "Lead Frontend Engineer",
     company: "Neophyte Ambient Intelligence Pvt. Ltd.",
-    duration: "2023 - Present",
+    duration: "May 2023 – Present",
     description:
-      "Leading a team of 8 frontend developers, architecting scalable React applications, and implementing modern development practices.",
+      "Leading a team of 5 frontend developers to architect scalable React applications for AI-based products, overseeing system design and feature implementation such as Google & Firebase authentication, filtering, sorting, and pagination. Managed project budgets and ensured early delivery using modern development practices including CI/CD and automated testing.",
     achievements: [
+      "Delivered final product three weeks ahead of schedule while managing a $50,000 budget",
       "Increased team productivity by 40% through process optimization",
+      "Migrated legacy application to React, improving performance by 40% and boosting user engagement by 15%",
       "Reduced application load time by 60% through performance optimizations",
-      "Implemented CI/CD pipeline reducing deployment time from hours to minutes",
-      "Mentored 5 junior developers leading to 3 promotions",
-      "Established component library used across 10+ projects",
+      "Implemented CI/CD pipeline, reducing deployment time from hours to minutes",
+      "Established a reusable component library, slashing new feature development time by 25% and adopted across 10+ projects",
+      "Overhauled automated test frameworks, decreasing debugging and issue resolution time by 90% to improve reliability",
+      "Mentored 5 junior developers resulting in 3 promotions, with dedicated training in state management and testing best practices",
+      "Worked with WebSockets to maintain system liveliness",
     ],
   },
   {
     id: 2,
     position: "Frontend Developer",
     company: "Mosahaya Associates Pvt. Ltd.",
-    duration: "2020 - 2023",
+    duration: "Feb 2020 – Apr 2023",
     description:
-      "Developed complex web applications using React and TypeScript, implemented microservices architecture, and collaborated with design teams.",
+      "Developed complex and scalable web applications using React, responsible for architecting and implementing microservices solutions. Collaborated closely with design teams and contributed reusable components to deliver optimized, maintainable code for both internal HR portals and high-impact job platforms.",
     achievements: [
-      "Built responsive web applications serving 100K+ daily active users",
-      "Delivered 10+ client projects with 98% client satisfaction rate",
-      "Reduced code bundle size by 50% through optimization techniques",
-      "Implemented automated testing reducing bugs by 70%"
+      "Built responsive web applications serving 100K+ daily active users and helping millions of job seekers connect with employers",
+      "Engineered and delivered 10+ client projects with a 98% client satisfaction rate",
+      "Developed a mobile-first job platform that doubled company revenue growth (100% increase)",
+      "Reduced code bundle size by 50% through advanced optimization techniques such as improved structure and page performance, including code redefinition reduction by 80%",
+      "Streamlined cross-team collaboration to integrate advanced features, leading to a 20% increase in company revenue",
+      "Built reusable ReactJS components, accelerating development speed by 65% and promoting maintainability",
+      "Implemented automated testing resulting in a 70% reduction in bugs",
+      "Delivered an internal HR portal for recruiters, improving applicant tracking and efficiency",
     ],
   },
 ];
@@ -170,68 +178,68 @@ export const experience = [
 export const testimonials = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    role: "Product Manager",
-    company: "TechCorp",
+    name: "Ritesh",
+    role: "VP of Technology",
+    company: "Neophyte.ai",
     avatar:
-      "https://images.unsplash.com/photo-1494790108755-2616b612b1-5c?w=100&h=100&fit=crop&crop=face",
+      "https://media.licdn.com/dms/image/v2/D4D03AQFoiUYXwaOl_A/profile-displayphoto-scale_200_200/B4DZkKHrpKGkAc-/0/1756811411920?e=1759968000&v=beta&t=5ARLJzkMz8nJF5G1pX3yjHTvJK6juBHA90qPJTX1Pxc",
     content:
-      "Paresh delivered exceptional work on our React application. His attention to detail and technical expertise exceeded our expectations. The project was completed on time and the code quality was outstanding.",
+      "Paresh consistently demonstrated leadership and technical prowess when managing our AI-based project. His foresight in system design and efficiency improvements enabled us to deliver ahead of schedule and within budget.",
     rating: 5,
   },
   {
     id: 2,
-    name: "Michael Chen",
-    role: "CTO",
-    company: "StartupXYZ",
+    name: "Rajkishore Pradhan",
+    role: "Fullstack Developer",
+    company: "Neophyte.ai",
     avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+      "https://media.licdn.com/dms/image/v2/D4D03AQHKLhCW8F7R-A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1689689798934?e=1759968000&v=beta&t=8hNp9x1o4YLfmHYd-jGCfk9lN9w5Fa8n0y6B3N2zRHE",
     content:
-      "Working with Paresh was a game-changer for our team. He not only delivered high-quality code but also mentored our junior developers. His leadership skills are as impressive as his technical abilities.",
+      "Working alongside Paresh on the React migration was a learning experience. His guidance on state management and testing frameworks hugely improved our workflow and overall code reliability.",
     rating: 5,
   },
   {
     id: 3,
-    name: "Emily Rodriguez",
-    role: "Design Lead",
-    company: "Creative Agency",
+    name: "Gourav Atre",
+    role: "Senior Engineer 2 CV-ML",
+    company: "John Deere",
     avatar:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+      "https://media.licdn.com/dms/image/v2/D4D03AQG0qBLQAE2z2A/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1731352830384?e=1759968000&v=beta&t=EjYag8IVIh9U_46cc8Y5Gvoit5kZ5FqxuQqas3rN8O8",
     content:
-      "Paresh has an incredible ability to translate complex designs into pixel-perfect, responsive interfaces. His collaboration with our design team was seamless and the final product exceeded our expectations.",
+      "Paresh's expertise across frontend and system architecture made collaboration smooth. His structured approach and communication skills accelerated delivery on shared ML interfaces.",
     rating: 5,
   },
   {
     id: 4,
-    name: "David Thompson",
-    role: "Engineering Manager",
-    company: "Enterprise Solutions",
+    name: "Ahsish",
+    role: "HR Manager - Account and Admin",
+    company: "Neophyte.ai",
     avatar:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+      "https://media.licdn.com/dms/image/v2/D4D03AQFFl1Z_zC8TPw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1698310730246?e=1759968000&v=beta&t=0bxhr66EjwgehhKm3NOXqagUwe0T5GqMLVfeIrsgAVE",
     content:
-      "Paresh's performance optimization work reduced our app load time by 60%. His deep understanding of modern web technologies and best practices made a significant impact on our user experience.",
+      "Paresh helped streamline our internal portals and application tracking. His attention to automation and user-centric features has made HR admin work much more efficient.",
     rating: 5,
   },
   {
     id: 5,
-    name: "Lisa Wang",
-    role: "Startup Founder",
-    company: "InnovateLab",
+    name: "Himanshu",
+    role: "Solutions Engineering Manager",
+    company: "Neophyte.ai",
     avatar:
-      "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&crop=face",
+      "https://media.licdn.com/dms/image/v2/D4D03AQFy6fDi4lrmQw/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1726055075439?e=1759968000&v=beta&t=hMlCIZW0v65IOy8jslrK_DoI6tnWqBRI3kWpndJ-U2s",
     content:
-      "As a non-technical founder, I needed someone who could not only code but also guide technical decisions. Paresh was instrumental in building our MVP and scaling our frontend architecture.",
+      "Paresh's technical depth and reliability impacted multiple product launches. He was instrumental in implementing CI/CD pipelines and optimizing our component library—accelerating delivery across projects.",
     rating: 5,
   },
   {
     id: 6,
-    name: "Alex Kumar",
-    role: "Senior Developer",
-    company: "DevStudio",
+    name: "Soham",
+    role: "Jr Data Scientist",
+    company: "Neophyte.ai",
     avatar:
-      "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&h=100&fit=crop&crop=face",
+      "https://media.licdn.com/dms/image/v2/D4D03AQFrUaCPG3cfNQ/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1691669947732?e=1759968000&v=beta&t=yZSzejTPMFyJShKnnifc9KHYpGOJmMjVVVN2GioS854",
     content:
-      "Paresh's code reviews and mentorship helped me grow significantly as a developer. His approach to solving complex problems and his knowledge sharing made our entire team better.",
+      "Paresh mentored me on integrating data-driven features into the frontend. His collaborative approach and detailed code reviews helped me quickly adapt and contribute to our AI platform.",
     rating: 5,
   },
 ];
