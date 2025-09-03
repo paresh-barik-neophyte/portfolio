@@ -4,8 +4,17 @@ const CustomCursor = () => {
   const [position, setPosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [isActive, setIsActive] = useState(false);
+  const [isLgScreen, setIsLgScreen] = useState(true);
 
   useEffect(() => {
+    const checkScreenSize = () => {
+      const isLarge = window.innerWidth >= 1024;
+      setIsLgScreen(isLarge);
+      document.body.style.cursor = isLarge ? 'none' : 'auto';
+    };
+
+    checkScreenSize(); // Initial check
+
     const updateCursorPosition = (e) => {
       setPosition({ x: e.clientX, y: e.clientY });
     };
@@ -25,24 +34,27 @@ const CustomCursor = () => {
       }
     };
 
+    window.addEventListener('resize', checkScreenSize);
     document.addEventListener('mousemove', updateCursorPosition);
     document.addEventListener('mousedown', handleMouseDown);
     document.addEventListener('mouseup', handleMouseUp);
     document.addEventListener('mouseenter', handleMouseEnter, true);
     document.addEventListener('mouseleave', handleMouseLeave, true);
 
-    // Hide default cursor
-    document.body.style.cursor = 'none';
-
     return () => {
+      window.removeEventListener('resize', checkScreenSize);
       document.removeEventListener('mousemove', updateCursorPosition);
       document.removeEventListener('mousedown', handleMouseDown);
       document.removeEventListener('mouseup', handleMouseUp);
       document.removeEventListener('mouseenter', handleMouseEnter, true);
       document.removeEventListener('mouseleave', handleMouseLeave, true);
-      document.body.style.cursor = 'auto';
+      document.body.style.cursor = 'auto'; // Reset on unmount
     };
   }, []);
+
+  if (!isLgScreen) {
+    return null;
+  }
 
   return (
     <>

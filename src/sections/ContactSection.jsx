@@ -11,6 +11,8 @@ import {
   Linkedin,
   MessageSquare,
   Sparkles,
+  Copy,
+  Check
 } from "lucide-react";
 import { personalInfo } from "../data/mock";
 
@@ -27,6 +29,8 @@ const ContactSection = () => {
     message: "",
   });
   const [submissionStatus, setSubmissionStatus] = useState(null); // null | 'sending' | 'success' | 'error'
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedPhone, setCopiedPhone] = useState(false);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -85,6 +89,19 @@ const ContactSection = () => {
       setSubmissionStatus('error');
       setTimeout(() => setSubmissionStatus(null), 5000); // Reset after 5s
     }
+  };
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(personalInfo.email);
+    setCopiedEmail(true);
+    setTimeout(() => setCopiedEmail(false), 2000); // Reset after 2s
+  };
+
+  const handleCopyPhone = () => {
+    const phoneNumber = personalInfo.phone.replace(/[-\s]/g, "");
+    navigator.clipboard.writeText(phoneNumber);
+    setCopiedPhone(true);
+    setTimeout(() => setCopiedPhone(false), 2000); // Reset after 2s
   };
 
   const contactInfo = [
@@ -314,26 +331,52 @@ const ContactSection = () => {
                   <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-lg hover:shadow-2xl border border-slate-200 dark:border-slate-700 transition-all duration-500 hover:-translate-y-2 cursor-hover">
                     <div className="flex items-center space-x-4">
                       <div
-                        className={`w-16 h-16 bg-gradient-to-br ${info.gradient} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}
+                        className={`w-16 h-16 flex-shrink-0 bg-gradient-to-br ${info.gradient} rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}
                       >
                         <info.icon size={24} className="text-white" />
                       </div>
-                      <div>
+                      <div className="flex-grow overflow-hidden">
                         <p className="text-sm font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-1">
                           {info.label}
                         </p>
-                        {info.href.startsWith("#") ? (
-                          <p className="text-xl font-bold text-slate-900 dark:text-white">
-                            {info.value}
-                          </p>
-                        ) : (
-                          <a
-                            href={info.href}
-                            className="text-xl font-bold text-slate-900 dark:text-white hover:text-transparent hover:bg-gradient-to-r hover:from-violet-600 hover:to-rose-600 hover:bg-clip-text transition-all duration-300 cursor-hover"
-                          >
-                            {info.value}
-                          </a>
-                        )}
+                        <div className="flex items-center justify-between">
+                          {info.href.startsWith("#") ? (
+                            <p className="text-xl font-bold text-slate-900 dark:text-white truncate">
+                              {info.value}
+                            </p>
+                          ) : (
+                            <a
+                              href={info.href}
+                              className="text-xl font-bold text-slate-900 dark:text-white hover:text-transparent hover:bg-gradient-to-r hover:from-violet-600 hover:to-rose-600 hover:bg-clip-text transition-all duration-300 cursor-hover truncate"
+                            >
+                              {info.value}
+                            </a>
+                          )}
+                          {info.label === 'Email' && (
+                            <div className="relative">
+                              <button onClick={handleCopyEmail} className="ml-2 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors duration-200">
+                                {copiedEmail ? <Check size={18} className="text-emerald-500" /> : <Copy size={18} className="text-slate-500" />}
+                              </button>
+                              {copiedEmail && (
+                                <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs px-2 py-1 rounded-md transition-all duration-300">
+                                  Copied!
+                                </span>
+                              )}
+                            </div>
+                          )}
+                          {info.label === 'Phone' && (
+                            <div className="relative">
+                              <button onClick={handleCopyPhone} className="ml-2 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors duration-200">
+                                {copiedPhone ? <Check size={18} className="text-emerald-500" /> : <Copy size={18} className="text-slate-500" />}
+                              </button>
+                              {copiedPhone && (
+                                <span className="absolute -top-8 left-1/2 -translate-x-1/2 bg-slate-800 text-white text-xs px-2 py-1 rounded-md transition-all duration-300">
+                                  Copied!
+                                </span>
+                              )}
+                            </div>
+                          )}
+                        </div>
                       </div>
                     </div>
                   </div>
