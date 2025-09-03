@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import emailjs from "@emailjs/browser";
 import {
   Send,
   MapPin,
@@ -25,7 +26,7 @@ const ContactSection = () => {
     subject: "",
     message: "",
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionStatus, setSubmissionStatus] = useState(null); // null | 'sending' | 'success' | 'error'
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -67,14 +68,23 @@ const ContactSection = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
+    setSubmissionStatus('sending');
 
-    // Mock form submission
-    setTimeout(() => {
-      alert("Thank you for your message! I'll get back to you soon.");
+    try {
+      await emailjs.send(
+        'service_lirx6hg',
+        'template_2ks3qca',
+        formData,
+        'sVsa0qJrSW6umvSgh'
+      );
+      setSubmissionStatus('success');
       setFormData({ name: "", email: "", subject: "", message: "" });
-      setIsSubmitting(false);
-    }, 2000);
+      setTimeout(() => setSubmissionStatus(null), 5000); // Reset after 5s
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      setSubmissionStatus('error');
+      setTimeout(() => setSubmissionStatus(null), 5000); // Reset after 5s
+    }
   };
 
   const contactInfo = [
@@ -262,7 +272,7 @@ const ContactSection = () => {
 
                 <button
                   type="submit"
-                  disabled={isSubmitting}
+                  disabled={submissionStatus === 'sending'}
                   className="w-full bg-gradient-to-r from-violet-600 to-rose-600 hover:from-violet-700 hover:to-rose-700 text-white 
                            px-8 py-4 rounded-2xl font-bold text-lg hover:scale-105 disabled:hover:scale-100
                            transition-all duration-300 cursor-hover flex items-center justify-center space-x-3
@@ -270,12 +280,23 @@ const ContactSection = () => {
                 >
                   <Send
                     size={20}
-                    className={isSubmitting ? "animate-pulse" : ""}
+                    className={submissionStatus === 'sending' ? "animate-pulse" : ""}
                   />
                   <span>
-                    {isSubmitting ? "Sending Message..." : "Send Message"}
+                    {submissionStatus === 'sending' ? "Sending Message..." : "Send Message"}
                   </span>
                 </button>
+
+                {submissionStatus === 'success' && (
+                  <div className="mt-4 text-center p-4 bg-emerald-100 dark:bg-emerald-900/50 border-2 border-emerald-500 rounded-2xl text-emerald-800 dark:text-emerald-200 font-semibold">
+                    Message sent successfully! I'll get back to you soon.
+                  </div>
+                )}
+                {submissionStatus === 'error' && (
+                  <div className="mt-4 text-center p-4 bg-rose-100 dark:bg-rose-900/50 border-2 border-rose-500 rounded-2xl text-rose-800 dark:text-rose-200 font-semibold">
+                    Something went wrong. Please try again later.
+                  </div>
+                )}
               </form>
             </div>
           </div>
